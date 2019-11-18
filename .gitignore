@@ -1,0 +1,13 @@
+*.iml
+*.class
+**/target/**
+**/.idea/**
+.classpath
+.project
+.settings/
+/target/
+/test-output/
+application.log
+application.log.*
+*.png
+*.pptx

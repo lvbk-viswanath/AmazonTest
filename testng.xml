@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" verbose="1">
+
+	<test name="ChromeAmazonTest">
+		<parameter name="browserType" value="chrome" />
+		<classes>
+			<class name="com.epam.AmazonTest.tests.LoginTest" />
+			<class name="com.epam.AmazonTest.tests.SearchProductTest" />
+			<class name="com.epam.AmazonTest.tests.ElectricityTest" />
+			<class name="com.epam.AmazonTest.tests.MobileRechargeTest" />
+			<class name="com.epam.AmazonTest.tests.QueryTest" />
+		</classes>
+	</test>
+
+	<test name="FirefoxAmazonTest">
+		<parameter name="browserType" value="firefox" />
+		<classes>
+			<class name="com.epam.AmazonTest.tests.LoginTest" />
+			<class name="com.epam.AmazonTest.tests.SearchProductTest" />
+			<class name="com.epam.AmazonTest.tests.MobileRechargeTest" />
+			<class name="com.epam.AmazonTest.tests.QueryTest" />
+		</classes>
+	</test>
+
+	<test name="HeadlessAmazonTest">
+		<parameter name="browserType" value="headless" />
+		<classes>
+			<class name="com.epam.AmazonTest.tests.LoginTest" />
+			<class name="com.epam.AmazonTest.tests.SearchProductTest" />
+			<class name="com.epam.AmazonTest.tests.MobileRechargeTest" />
+			<class name="com.epam.AmazonTest.tests.QueryTest" />
+		</classes>
+	</test>
+
+</suite> 
