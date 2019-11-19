@@ -60,7 +60,7 @@ public class ProductPage extends Page {
 		click(askThecommunity);
 		WebElement postQuestion = getElement(xPathProp.getProperty("postcommunity"), logger, 4);
 		click(postQuestion);
-		waitSeconds(3);
+		waitSeconds(8);
 		click(postQuestion);
 		waitForPageToLoad();
 		return new LoginPage(this.driver);

@@ -23,7 +23,7 @@ public class TestBase {
 
 	@BeforeClass
 	@Parameters({ "browserType" })
-	public void setUp(@Optional("firefox") String browsername) {
+	public void setUp(@Optional("chrome") String browsername) {
 		driver = DriverFactory.getDriver(browsername);
 		driver.navigate().to(urlPropertyObject.getProperty("basepageurl"));
 	}
