@@ -27,10 +27,14 @@ public class ReportListener implements ITestListener {
 	}
 
 	public void onTestFailure(ITestResult result) {
-		String path = null;
+		String path = "";
 		Object testClass = result.getInstance();
-		WebDriver webDriver = ((TestBase) testClass).driver;
-		path = ScreenshotFailed.getScreenshot(webDriver, result.getName());
+		try {
+			WebDriver webDriver = ((TestBase) testClass).driver;
+			path = ScreenshotFailed.getScreenshot(webDriver, result.getName());
+		} catch (NullPointerException e) {
+			logger.error("In Report Listener " + e);
+		}
 		logger.info("The screenshot path in Report Listener : " + path);
 		log.log(LogStatus.FAIL, result.getName() + " test Case Failed due to : " + result.getThrowable(),
 				log.addScreenCapture(path));
