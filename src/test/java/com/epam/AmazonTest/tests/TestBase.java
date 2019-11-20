@@ -22,12 +22,13 @@ public class TestBase {
 	public WebDriver driver;
 	private Properties urlPropertyObject = PropertyUtil.getURLPropertyObject();
 
-	@BeforeTest
+	@Test(priority=0)
 	@Parameters({ "browserType" })
 	public void setUp(@Optional("chrome") String browsername) {
 		driver = DriverFactory.getDriver(browsername);
 		driver.navigate().to(urlPropertyObject.getProperty("basepageurl"));
 	}
+	
 	
 	
 
