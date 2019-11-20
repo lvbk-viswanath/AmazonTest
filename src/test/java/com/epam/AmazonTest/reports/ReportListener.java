@@ -31,6 +31,7 @@ public class ReportListener implements ITestListener {
 		Object testClass = result.getInstance();
 		try {
 			WebDriver webDriver = ((TestBase) testClass).driver;
+			logger.info("WebDriver in Report Listener : "+webDriver);
 			path = ScreenshotFailed.getScreenshot(webDriver, result.getName());
 		} catch (NullPointerException e) {
 			logger.error("In Report Listener " + e);
