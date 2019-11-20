@@ -34,6 +34,8 @@ public class ReportListener implements ITestListener {
 		Object testClass = result.getInstance();
 		logger.info("testClass is : "+testClass);
 		logger.info("testbase casted testClass is : "+(TestBase)testClass);
+		logger.info("testClass driver is : "+testClass.driver);
+		logger.info("testbase casted testClass driver is : "+(TestBase)testClass.driver);
 		try {
 			WebDriver webDriver = ((TestBase) testClass).driver;
 			logger.info("WebDriver in Report Listener : "+webDriver);
