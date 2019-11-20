@@ -21,6 +21,7 @@ public class ScreenshotFailed {
 		String path = "";
 		try {
 			TakesScreenshot ts = (TakesScreenshot) driver;
+			logger.info("TakesScreenshot WebDriver in ScreenshotFailed : "+ts);
 			byte[] srcZipFileBytes = ts.getScreenshotAs(OutputType.BYTES);
 			path = System.getProperty("user.dir") + "/reports/" + testmethodname + System.currentTimeMillis() + ".png";
 			File destination = new File(path);
