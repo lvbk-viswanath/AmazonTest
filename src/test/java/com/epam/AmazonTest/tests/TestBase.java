@@ -22,7 +22,7 @@ public class TestBase {
 	public WebDriver driver;
 	private Properties urlPropertyObject = PropertyUtil.getURLPropertyObject();
 
-	@BeforeClass
+	@BeforeClass(alwaysRun = true)
 	@Parameters({ "browserType" })
 	public void setUp(@Optional("chrome") String browsername) {
 		driver = DriverFactory.getDriver(browsername);
