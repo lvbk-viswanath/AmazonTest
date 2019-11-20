@@ -5,7 +5,8 @@ import com.epam.AmazonTest.utility.PropertyUtil;
 import org.openqa.selenium.WebDriver;
 
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -21,12 +22,14 @@ public class TestBase {
 	public WebDriver driver;
 	private Properties urlPropertyObject = PropertyUtil.getURLPropertyObject();
 
-	@BeforeClass
+	@BeforeTest
 	@Parameters({ "browserType" })
 	public void setUp(@Optional("chrome") String browsername) {
 		driver = DriverFactory.getDriver(browsername);
 		driver.navigate().to(urlPropertyObject.getProperty("basepageurl"));
 	}
+	
+	
 
 	@AfterClass(alwaysRun = true)
 	public void stopBrowser() {
