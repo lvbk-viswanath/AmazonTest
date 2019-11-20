@@ -17,16 +17,16 @@ public class ScreenshotFailed {
 	private ScreenshotFailed() {
 	}
 
-	public static String getScreenshot(WebDriver driver, String testmethodname) throws IOException {
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		byte[] srcZipFileBytes = ts.getScreenshotAs(OutputType.BYTES);
-		String path = System.getProperty("user.dir") + "/reports/" + testmethodname + System.currentTimeMillis()
-				+ ".png";
-		File destination = new File(path);
+	public static String getScreenshot(WebDriver driver, String testmethodname) {
+		String path = "";
 		try {
+			TakesScreenshot ts = (TakesScreenshot) driver;
+			byte[] srcZipFileBytes = ts.getScreenshotAs(OutputType.BYTES);
+			path = System.getProperty("user.dir") + "/reports/" + testmethodname + System.currentTimeMillis() + ".png";
+			File destination = new File(path);
 			FileUtils.writeByteArrayToFile(destination, srcZipFileBytes);
 
-		} catch (IOException e) {
+		} catch (IOException | NullPointerException e) {
 			logger.error("In ScreenshotFailed class, Capture Failed " + e.getMessage());
 		}
 		return path;
