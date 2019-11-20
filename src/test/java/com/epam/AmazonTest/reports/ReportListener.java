@@ -20,6 +20,7 @@ public class ReportListener implements ITestListener {
 
 	public void onTestStart(ITestResult result) {
 		log = extent.startTest(result.getName() + " test case of class : " + result.getInstanceName());
+		logger.info(result.getName() + " test case of class : " + result.getInstanceName());
 	}
 
 	public void onTestSuccess(ITestResult result) {
