@@ -32,6 +32,7 @@ public class ReportListener implements ITestListener {
 		logger.info("In test failure : "+result.getName());
 		String path = "";
 		Object testClass = result.getInstance();
+		logger.info("testClass is : "+testClass);
 		try {
 			WebDriver webDriver = ((TestBase) testClass).driver;
 			logger.info("WebDriver in Report Listener : "+webDriver);
