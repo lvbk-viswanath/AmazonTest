@@ -1,8 +1,5 @@
 package com.epam.AmazonTest.reports;
 
-import java.io.IOException;
-
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
@@ -33,11 +30,8 @@ public class ReportListener implements ITestListener {
 		String path = null;
 		Object testClass = result.getInstance();
 		WebDriver webDriver = ((TestBase) testClass).driver;
-		try {
-			path = ScreenshotFailed.getScreenshot(webDriver, result.getName());
-		} catch (IOException e) {
-			logger.error("In Report Listener " + e);
-		}
+		path = ScreenshotFailed.getScreenshot(webDriver, result.getName());
+		logger.info("The screenshot path in Report Listener : " + path);
 		log.log(LogStatus.FAIL, result.getName() + " test Case Failed due to : " + result.getThrowable(),
 				log.addScreenCapture(path));
 	}
