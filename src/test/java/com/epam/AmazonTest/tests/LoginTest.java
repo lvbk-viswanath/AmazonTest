@@ -18,13 +18,13 @@ public class LoginTest extends TestBase {
 	private LoginPage loginPage = null;
 	private static final Logger logger = Logger.getLogger(LoginTest.class);
 
-	@Test(priority = 1)
+	@Test(priority = 0)
 	public void setUpLoginPage() throws PageNotFoundException {
 		homePage = new HomePage(driver).openPage();
 		assertTrue(homePage instanceof HomePage);
 	}
 
-	@Test(priority = 2, dependsOnMethods = "setUpLoginPage")
+	@Test(priority = 1, dependsOnMethods = "setUpLoginPage")
 	public void goToSignInPagetest() throws InterruptedException, PageNotFoundException {
 		loginPage = homePage.goToLoginPage();
 		loginPage = loginPage.openPage();
@@ -38,7 +38,7 @@ public class LoginTest extends TestBase {
 		return (testObjArray);
 	}
 
-	@Test(priority = 3, dataProvider = "credentialsAuthentication", dependsOnMethods = "goToSignInPagetest")
+	@Test(priority = 2, dataProvider = "credentialsAuthentication", dependsOnMethods = "goToSignInPagetest")
 	public void validateCredentialsTest(String userId, String password) throws InterruptedException {
 		assertTrue(loginPage.checkUserId(userId));
 		assertTrue(loginPage.checkPassword(password));
