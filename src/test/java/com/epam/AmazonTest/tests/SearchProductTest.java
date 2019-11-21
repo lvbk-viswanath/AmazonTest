@@ -13,7 +13,7 @@ public class SearchProductTest extends TestBase {
 	@Test
 	public void addToCart() {
 		HomePage homePage = new HomePage(driver).openPage();
-		SearchResultPage searchResultPage = homePage.searchForProduct("watch").openPage();
+		SearchResultPage searchResultPage = homePage.searchForProduct("bottle").openPage();
 		ProductPage productPage = searchResultPage.selectProduct(1).openPage();
 		assertTrue(productPage.checkAvailability());
 		productPage.addToCart();
