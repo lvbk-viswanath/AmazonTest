@@ -8,7 +8,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class ChromeBrowser implements BaseBrowser {
 
 	public WebDriver initDriver() {
-		WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().version("78.0.3904.105").setup();
 		return new ChromeDriver();
 	}
 
